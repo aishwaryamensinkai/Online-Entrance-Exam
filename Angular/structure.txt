@@ -1,0 +1,52 @@
+● src
++---● app
+|   +--● books
+|   |  |--books.component.ts|.html|.css
+|   |  +--● addbooks
+|   |  |  |--addbooks.component.ts|.html|.css
+|   |  +--● deletebooks
+|   |  |  |--deletebooks.component.ts|.html|.css
+|   +--● feedback
+|   |  |--feedback.component.ts|.html|.css
+|   +--● firstPage
+|   |  |--firstPage.component.ts|.html|.css
+|   +--● function
+|   |  |--function.component.ts|.html|.css
+|   +--● page
+|   |  |--page.component.ts|.html|.css
+|   +--● student
+|   |  |--student.component.ts|.html|.css
+|   +--● user
+|   |  |--user.component.ts|.html|.css
+|   |  +--● sign-in
+|   |  |  |--sign-in.component.ts|.html|.css
+|   |  +--● sign-up
+|   |  |  |--sign-up.component.ts|.html|.css
+|   +--● userprofile
+|   |  |--userprofile.component.ts|.html|.css
+|   +--● viewnews
+|   |  |--viewnews.component.ts|.html|.css
+|   +--● viewnewsinews
+|   |  |--viewnewsinews.component.ts|.html|.css
+|   +--● viewfeedback
+|   |  |--viewstudents.component.ts|.html|.css
+|   +--● viewfeedback
+|   |  |--viewstudents.component.ts|.html|.css
+|   |  
+|   |--● shared
+|   |  |--books.service.ts
+|   |  |--books.model.ts
+|   |  |--feedback.service.ts
+|   |  |--feedback.model.ts
+|   |  |--user.service.ts
+|   |  |--user.model.ts
+|   |  |--student.service.ts
+|   |  |--student.model.ts
+|   |
+|   |--app.module.ts
+|   |--routes.ts
+|
++---● auth
+    |
+    +-- auth.gaurd.ts
+    +-- auth.interceptor.ts

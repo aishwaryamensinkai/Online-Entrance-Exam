@@ -1,0 +1,92 @@
+<div class="wrapper">
+    <div id="formContent">
+        <div>
+            <img src="/assets/img/users.png" id="icon" alt="User Icon" width="30" height="170">
+        </div>
+
+        <form #student="ngForm" (ngSubmit)="student.valid && onSubmit(student)">
+
+            <input type="text" #fullName="ngModel" [(ngModel)]="studentService.selectedStudent.fullName" name="fullName"
+                placeholder="Full Name" required [ngClass]="{'invalid-textbox' :student.submitted && !fullName.valid }">
+            <div *ngIf="student.submitted && !fullName.valid">
+                <label class="validation-message">This field is required.</label>
+            </div>
+            <br>
+
+            <input type="text" #contactno="ngModel" [(ngModel)]="studentService.selectedStudent.contactno"
+                name="contactno" placeholder="contactno" required [pattern]="contactnoRegex"
+                [ngClass]="{'invalid-textbox' :student.submitted && !contactno.valid }">
+            <div *ngIf="student.submitted && contactno.errors">
+                <label *ngIf="contactno.errors.required" class="validation-message">This field is required.</label>
+                <label *ngIf="contactno.errors.pattern" class="validation-message">Invalid contactno.</label>
+            </div>
+
+            <input type="text" #email="ngModel" [(ngModel)]="studentService.selectedStudent.email" name="email"
+                placeholder="Email" required [pattern]="emailRegex"
+                [ngClass]="{'invalid-textbox' :student.submitted && !email.valid }">
+            <div *ngIf="student.submitted && email.errors">
+                <label *ngIf="email.errors.required" class="validation-message">This field is required.</label>
+                <label *ngIf="email.errors.pattern" class="validation-message">Invalid email address.</label>
+            </div>
+
+            <input type="text" #address="ngModel" [(ngModel)]="studentService.selectedStudent.address" name="address"
+                placeholder="address" required [ngClass]="{'invalid-textbox' :student.submitted && !address.valid }">
+            <div *ngIf="student.submitted && !address.valid">
+                <label class="validation-message">This field is required.</label>
+            </div>
+            <br>
+            <input type="text" #age="ngModel" [(ngModel)]="studentService.selectedStudent.age" name="age"
+                placeholder="age" max="30" required [ngClass]="{'invalid-textbox' :student.submitted && !age.valid }">
+            <div *ngIf="student.submitted && !age.valid">
+                <label class="validation-message">This field is required.</label>
+                <label *ngIf="age.errors.max" class="validation-message">Should be less then 30</label>
+            </div>
+            <input type="text" #marks="ngModel" [(ngModel)]="studentService.selectedStudent.marks" name="marks"
+                placeholder="marks" max="100" min="70" required
+                [ngClass]="{'invalid-textbox' :student.submitted && !marks.valid }">
+            <div *ngIf="student.submitted && marks.errors">
+                <label *ngIf="marks.errors.required" class="validation-message">This field is required.</label>
+                <label *ngIf="marks.errors.max" class="validation-message">Should be less then 100</label>
+                <label *ngIf="marks.errors.min" class="validation-message">Should be more then 70</label>
+            </div>
+            <br>
+            <label style="color: grey;">Gender &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <select class="ui compact selection dropdown" name="gender" #gender="ngModel"
+                [(ngModel)]="studentService.selectedStudent.gender" placeholder="Gender" required
+                [ngClass]="{'invalid-textbox' :student.submitted && !gender.valid }">
+                <option style="color: grey;" value="Male">Male</option>
+                <option style="color: grey;" value="Female">Female</option>
+                <option style="color: grey;" value="Other">Other</option>
+            </select>
+            <div *ngIf="student.submitted && !gender.valid">
+                <label class="validation-message"><br>This field is required.</label>
+            </div>
+            <br>
+            <br>
+            <label style="color: grey;">Qualification &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <select class="ui compact selection dropdown" name="qualification" #qualification="ngModel"
+                [(ngModel)]="studentService.selectedStudent.qualification" placeholder="ualification" required
+                [ngClass]="{'invalid-textbox' :student.submitted && !qualification.valid }">
+                <option style="color: grey;" value="CS">CS</option>
+                <option style="color: grey;" value="EC">EC</option>
+                <option style="color: grey;" value="EEE">EEE</option>
+                <option style="color: grey;" value="BT">BT</option>
+            </select>
+            <div *ngIf="student.submitted && !qualification.valid">
+                <label class="validation-message"><br>This field is required.</label>
+            </div>
+            <br>
+            <input type="submit" value="Sign Up">
+        </form>
+
+        <!-- Success message -->
+        <div class="success" *ngIf="showSucessMessage">
+            Saved successfully
+        </div>
+
+        <!-- Error message -->
+        <div class="alert" *ngIf="serverErrorMessages">
+            {{serverErrorMessages}}
+        </div>
+    </div>
+</div>

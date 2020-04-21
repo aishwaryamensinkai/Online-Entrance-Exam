@@ -1,0 +1,40 @@
+<html style="background-color: #56baed;">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<div >
+    <br>
+    <br>
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Full Name</th>
+                        <th>Gender</th>
+                        <th>Email</th>
+                        <th>Age</th>
+                        <th>Marks</th>
+                        <th>Address</th>
+                        <th>Contact Number</th>
+                        <th>Qualification</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor=" let b of studentService.student">
+                        <td>{{b.fullName}}</td>
+                        <td>{{b.gender}}</td>
+                        <td>{{b.email}}</td>
+                        <td>{{b.age}}</td>
+                        <td>{{b.marks}}</td>
+                        <td>{{b.address}}</td>
+                        <td>{{b.contactno}}</td>
+                        <td>{{b.qualification}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</html>
